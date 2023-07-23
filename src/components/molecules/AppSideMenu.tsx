@@ -17,24 +17,20 @@ const AppSideMenu: React.FC = () => {
       <Divider />
       <List>
         <ListItem disablePadding>
-          <Link href="/announcement" legacyBehavior passHref>
-            <ListItemButton component="a">
-              <ListItemIcon>
-                <NotificationsIcon />
-              </ListItemIcon>
-              <ListItemText primary="お知らせ" />
-            </ListItemButton>
-          </Link>
+          <ListItemButton component={Link} href="/announcement">
+            <ListItemIcon>
+              <NotificationsIcon />
+            </ListItemIcon>
+            <ListItemText primary="お知らせ" />
+          </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <Link href="/push" legacyBehavior passHref>
-            <ListItemButton component="a">
-              <ListItemIcon>
-                <CampaignIcon />
-              </ListItemIcon>
-              <ListItemText primary="プッシュ通知" />
-            </ListItemButton>
-          </Link>
+          <ListItemButton component={Link} href="/push">
+            <ListItemIcon>
+              <CampaignIcon />
+            </ListItemIcon>
+            <ListItemText primary="プッシュ通知" />
+          </ListItemButton>
         </ListItem>
       </List>
       <Divider />
