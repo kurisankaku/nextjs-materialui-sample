@@ -52,10 +52,11 @@ export default function HomePage() {
 
       <Drawer
         sx={{
-          width: 320,
+          width: 120,
+          zIndex: 999,
           flexShrink: 0,
           '& .MuiDrawer-paper': {
-            width: 320,
+            width: 120,
             boxSizing: 'border-box',
             top: ['48px', '56px', '64px'],
             height: 'auto',
