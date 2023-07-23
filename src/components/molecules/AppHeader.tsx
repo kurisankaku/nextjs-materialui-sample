@@ -16,7 +16,11 @@ interface AppHeaderProps {
 
 const AppHeader: React.FC<AppHeaderProps> = (props) => {
   return (
-    <AppBar position={props.position} sx={props.sx} color="inherit">
+    <AppBar
+      position={props.position}
+      sx={{ zIndex: 1000, ...props.sx }}
+      color="inherit"
+    >
       <Toolbar sx={{ backgroundColor: 'background.paper' }}>
         <IconButton
           size="large"
