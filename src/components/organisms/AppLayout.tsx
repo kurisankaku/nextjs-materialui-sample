@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import AppHeader from '@/components/molecules/AppHeader';
@@ -15,13 +15,17 @@ const drawerWidth = 240;
 
 const AppLayout: React.FC<AppLayoutProps> = (props) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const container = useRef<HTMLElement>();
 
   const handleDrawerToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const container =
-    window !== undefined ? () => window.document.body : undefined;
+  useEffect(() => {
+    if (window) {
+      container.current = window.document.body;
+    }
+  }, []);
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -38,7 +42,7 @@ const AppLayout: React.FC<AppLayoutProps> = (props) => {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
       >
         <Drawer
-          container={container}
+          container={container.current}
           variant="temporary"
           open={isMobileMenuOpen}
           onClose={handleDrawerToggle}
