@@ -16,8 +16,8 @@ interface AppHeaderProps {
 
 const AppHeader: React.FC<AppHeaderProps> = (props) => {
   return (
-    <AppBar position={props.position} sx={props.sx}>
-      <Toolbar>
+    <AppBar position={props.position} sx={props.sx} color="inherit">
+      <Toolbar sx={{ backgroundColor: 'background.paper' }}>
         <IconButton
           size="large"
           edge="start"
@@ -28,11 +28,15 @@ const AppHeader: React.FC<AppHeaderProps> = (props) => {
         >
           <MenuIcon />
         </IconButton>
-        <Link href="/" legacyBehavior passHref>
-          <MuiLink variant="h6" sx={{ flexGrow: 1, color: 'white' }}>
-            サイト名
-          </MuiLink>
-        </Link>
+        <MuiLink
+          variant="h6"
+          component={Link}
+          href="/"
+          color="inherit"
+          sx={{ flexGrow: 1, textDecoration: 'none' }}
+        >
+          サイト名
+        </MuiLink>
         <Button color="inherit">Login</Button>
       </Toolbar>
     </AppBar>
